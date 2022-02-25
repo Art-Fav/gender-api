@@ -1,8 +1,8 @@
-name: DockerCICD
+name: CICD
 on: [push]
 jobs:
 
-  Docker:
+  DockerHub:
     runs-on: ubuntu-latest
     steps:
       - 
@@ -31,3 +31,16 @@ jobs:
           tags: gilapop/gender-api:latest
           cache-from: type=registry,ref=gilapop/gender-api:buildcache
           cache-to: type=registry,ref=gilapop/gender-api:buildcache,mode=max
+
+  Google:
+    steps:
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v0'
+
+    - name: 'Use gcloud CLI'
+      run: 'gcloud info'
