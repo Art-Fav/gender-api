@@ -33,6 +33,7 @@ jobs:
           cache-to: type=registry,ref=gilapop/gender-api:buildcache,mode=max
 
   Google:
+    needs: DockerHub
     runs-on: ubuntu-latest
     steps:
     - 
@@ -54,6 +55,6 @@ jobs:
       run: |-
         gcloud compute instances update-container gender-api-vm \
         --container-image docker.io/gilapop/gender-api:latest \
-        --zone=eu-west1
+        --zone=europe-west1-b
 
     
