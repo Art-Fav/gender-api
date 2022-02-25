@@ -38,7 +38,7 @@ jobs:
     - 
       name: Checkout
       uses: actions/checkout@v2
-      
+
     - 
       id: 'auth'
       uses: 'google-github-actions/auth@v0'
@@ -50,5 +50,7 @@ jobs:
       uses: 'google-github-actions/setup-gcloud@v0'
 
     - 
-      name: 'Use gcloud CLI'
-      run: 'gcloud info'
+      name: Update image
+      run: |-
+        gcloud --quiet beta compute ssh --zone "europe-west1-b" "gender-api" --project "moonlit-palace-338110" \
+        -- docker stop "gilapop/gender-api" & docker rm "gilapop/gender-api" & docker pull gilapop/gender-api:latest
