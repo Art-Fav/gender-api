@@ -33,6 +33,7 @@ jobs:
           cache-to: type=registry,ref=gilapop/gender-api:buildcache,mode=max
 
   Google:
+    runs-on: ubuntu-latest
     steps:
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
