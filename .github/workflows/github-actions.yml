@@ -49,8 +49,19 @@ jobs:
       name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v0'
 
-    - 
-      name: Update image
+    -
+      name: Update
       run: |-
-        gcloud --quiet beta compute ssh --zone "europe-west1-b" "gender-api" --project "moonlit-palace-338110" \
+        gcloud compute instances update-container gender-api-vm \
+        --container-image docker.io/gilapop/gender-api:latest
+
+    """
+    - 
+      name: Update
+      run: |-
+        gcloud \
+        --quiet beta compute ssh \ 
+        --zone "europe-west1-b" "gender-api" \
+        --project "moonlit-palace-338110" \
         -- docker stop "gilapop/gender-api" & docker rm "gilapop/gender-api" & docker pull gilapop/gender-api:latest
+    """
