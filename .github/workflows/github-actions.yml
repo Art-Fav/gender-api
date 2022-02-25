@@ -54,6 +54,6 @@ jobs:
       run: |-
         gcloud compute instances update-container gender-api-vm \
         --container-image docker.io/gilapop/gender-api:latest \
-        --zone=europe-west1
+        --zone=eu-west1
 
     
