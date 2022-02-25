@@ -42,12 +42,12 @@ jobs:
         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
     - 
-      name: 'Set up Cloud SDK'
-      uses: 'google-github-actions/setup-gcloud@v0'
-
-    - 
       name: Checkout
       uses: actions/checkout@v2
+
+    - 
+      name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v0'
 
     - 
       name: 'Use gcloud CLI'
