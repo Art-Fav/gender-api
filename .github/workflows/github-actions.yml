@@ -56,4 +56,4 @@ jobs:
         gcloud compute instances create-with-container gender-api-vm \
         --container-image docker.io/gilapop/gender-api:latest \
         --zone europe-west1-b \
-        --tags http-server
+        --tags flask
