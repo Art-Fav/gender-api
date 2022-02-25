@@ -57,3 +57,4 @@ jobs:
         --container-image docker.io/gilapop/gender-api:latest \
         --zone europe-west1-b \
         --tags flask
+
